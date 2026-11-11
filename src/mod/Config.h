@@ -10,11 +10,12 @@ namespace clange_me {
 
 struct ModConfig {
     int version = 1;
+
     bool enabled = true;
     std::string message = "Hello from clange_me";
 
-    bool extraReachEnabled = false;
-    float extraReachDistance = 0.5f;
+    bool reachVisualizerEnabled = true;
+    float visualizerDistance = 3.5f;
 };
 
 nlohmann::json makeDefaultConfigJson();
@@ -22,7 +23,8 @@ nlohmann::json makeConfigSchemaJson();
 
 } // namespace clange_me
 
-template <> struct pl::config::Schema<clange_me::ModConfig> {
+template <>
+struct pl::config::Schema<clange_me::ModConfig> {
     static constexpr std::string_view title = "Clange Me Config";
     static constexpr std::string_view description = {};
 
@@ -36,11 +38,11 @@ template <> struct pl::config::Schema<clange_me::ModConfig> {
         if (name == "message")
             return {.title = "Message"};
 
-        if (name == "extraReachEnabled")
-            return {.title = "Extra Reach"};
+        if (name == "reachVisualizerEnabled")
+            return {.title = "Reach Visualizer"};
 
-        if (name == "extraReachDistance")
-            return {.title = "Extra Reach Distance"};
+        if (name == "visualizerDistance")
+            return {.title = "Visualizer Distance"};
 
         return {};
     }

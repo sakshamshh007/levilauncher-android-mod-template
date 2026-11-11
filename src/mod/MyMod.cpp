@@ -52,13 +52,13 @@ bool ClangeMeMod::load() {
     mConfig = mConfigFile->value();
 
     self.getLogger().info(
-        "Reach Visualizer: {}",
-        mConfig.showReachVisualizer ? "Enabled" : "Disabled"
+        "Extra Reach setting: {}",
+        mConfig.extraReachEnabled ? "Enabled" : "Disabled"
     );
 
     self.getLogger().info(
-        "Visualizer Distance: {}",
-        mConfig.visualizerDistance
+        "Extra Reach distance setting: {}",
+        mConfig.extraReachDistance
     );
 
     self.getLogger().info(
@@ -87,15 +87,12 @@ bool ClangeMeMod::enable() {
 
 bool ClangeMeMod::disable() {
     getSelf().getLogger().debug("Disabling...");
-
     return true;
 }
 
 bool ClangeMeMod::unload() {
     getSelf().getLogger().debug("Unloading...");
-
     mConfigFile.reset();
-
     return true;
 }
 

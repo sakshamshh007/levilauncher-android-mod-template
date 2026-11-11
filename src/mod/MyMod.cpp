@@ -52,13 +52,13 @@ bool ClangeMeMod::load() {
     mConfig = mConfigFile->value();
 
     self.getLogger().info(
-        "Extra Reach setting: {}",
-        mConfig.extraReachEnabled ? "Enabled" : "Disabled"
+        "Reach Visualizer: {}",
+        mConfig.reachVisualizerEnabled ? "Enabled" : "Disabled"
     );
 
     self.getLogger().info(
-        "Extra Reach distance setting: {}",
-        mConfig.extraReachDistance
+        "Visualizer Distance: {}",
+        mConfig.visualizerDistance
     );
 
     self.getLogger().info(

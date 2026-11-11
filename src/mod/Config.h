@@ -1,3 +1,4 @@
+
 #pragma once
 
 #include <string>
@@ -11,6 +12,8 @@ struct ModConfig {
     int version = 1;
     bool enabled = true;
     std::string message = "Hello from clange_me";
+    bool showReachVisualizer = true;
+    float visualizerDistance = 3.0f;
 };
 
 nlohmann::json makeDefaultConfigJson();
@@ -29,7 +32,10 @@ template <> struct pl::config::Schema<clange_me::ModConfig> {
             return {.title = "Enabled", .description = "Turns clange_me behavior on or off."};
         if (name == "message")
             return {.title = "Message", .description = "Message written when the mod is enabled."};
+        if (name == "showReachVisualizer")
+            return {.title = "Show Reach Visualizer"};
+        if (name == "visualizerDistance")
+            return {.title = "Visualizer Distance"};
         return {};
-    }bool showReachVisualizer = true;
-float visualizerDistance = 3.0f;
+    }
 };

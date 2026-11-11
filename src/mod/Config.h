@@ -30,5 +30,6 @@ template <> struct pl::config::Schema<clange_me::ModConfig> {
         if (name == "message")
             return {.title = "Message", .description = "Message written when the mod is enabled."};
         return {};
-    }
+    }bool showReachVisualizer = true;
+float visualizerDistance = 3.0f;
 };

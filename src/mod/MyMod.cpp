@@ -52,13 +52,23 @@ bool ClangeMeMod::load() {
     mConfig = mConfigFile->value();
 
     self.getLogger().info(
-        "Reach Visualizer: {}",
-        mConfig.reachVisualizerEnabled ? "Enabled" : "Disabled"
+        "Aim Trainer: {}",
+        mConfig.aimTrainerEnabled ? "Enabled" : "Disabled"
+    );
+
+    self.getLogger().info(
+        "Target Visualizer: {}",
+        mConfig.targetVisualizerEnabled ? "Enabled" : "Disabled"
     );
 
     self.getLogger().info(
         "Visualizer Distance: {}",
         mConfig.visualizerDistance
+    );
+
+    self.getLogger().info(
+        "Reaction Time Goal: {} ms",
+        mConfig.reactionTimeGoal
     );
 
     self.getLogger().info(
@@ -76,7 +86,7 @@ bool ClangeMeMod::enable() {
     self.getLogger().debug("Enabling...");
 
     if (!mConfig.enabled) {
-        self.getLogger().info("clange_me is disabled by config");
+        self.getLogger().info("Clange Aim Assist is disabled by config");
         return true;
     }
 

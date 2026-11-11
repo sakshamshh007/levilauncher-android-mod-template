@@ -86,11 +86,16 @@ bool ClangeMeMod::enable() {
     self.getLogger().debug("Enabling...");
 
     if (!mConfig.enabled) {
-        self.getLogger().info("Clange Aim Assist is disabled by config");
+        self.getLogger().info(
+            "Clange Aim Assist is disabled by config"
+        );
         return true;
     }
 
-    self.getLogger().info("Config message: {}", mConfig.message);
+    self.getLogger().info(
+        "Config message: {}",
+        mConfig.message
+    );
 
     return true;
 }

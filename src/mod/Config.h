@@ -13,8 +13,8 @@ struct ModConfig {
     bool enabled = true;
     std::string message = "Hello from clange_me";
 
-    bool showReachVisualizer = true;
-    float visualizerDistance = 3.0f;
+    bool extraReachEnabled = false;
+    float extraReachDistance = 0.5f;
 };
 
 nlohmann::json makeDefaultConfigJson();
@@ -31,16 +31,16 @@ template <> struct pl::config::Schema<clange_me::ModConfig> {
             return {.title = "Version", .readOnly = true};
 
         if (name == "enabled")
-            return {.title = "Enabled", .description = "Turns clange_me behavior on or off."};
+            return {.title = "Enabled"};
 
         if (name == "message")
-            return {.title = "Message", .description = "Message written when the mod is enabled."};
+            return {.title = "Message"};
 
-        if (name == "showReachVisualizer")
-            return {.title = "Show Reach Visualizer", .description = "Enables the visual reach indicator."};
+        if (name == "extraReachEnabled")
+            return {.title = "Extra Reach"};
 
-        if (name == "visualizerDistance")
-            return {.title = "Visualizer Distance", .description = "Distance displayed by the visualizer."};
+        if (name == "extraReachDistance")
+            return {.title = "Extra Reach Distance"};
 
         return {};
     }
